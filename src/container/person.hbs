@@ -1,0 +1,194 @@
+<div>
+    {{#with person}}
+
+    <main>
+        <p>
+        <h1>{{name}}</h1>
+        </p>
+        <em>{{age}} years </em>
+        <br>
+        <em>{{gender}}</em>
+        {{#with address}}
+        <br>
+        <em>{{country}}, {{zip}}, {{state}}, {{city}}, {{street}}</em>
+        {{/with}}
+        <hr>
+
+        <section>
+            <p>{{> title data='My Education' big=true}}</p>
+            <ul>
+                {{#each education}}
+                <li>
+                    {{degree}}, {{major}}, {{university}}, {{graduationYear}}
+                </li>
+                {{/each}}
+            </ul>
+
+        </section>
+        <hr>
+
+        <section>
+            <p>{{> title data='My Workexperience' big=true}}</p>
+            <ul>
+                {{#each workExperience}}
+                <li>
+                    {{> title data=company big=false}}
+                    <strong>{{title}}</strong>
+                    <br>
+                    <em>{{startDate}} - {{endDate}}</em>
+                    <br>
+                    <br>
+
+                    {{> title_wish data='Responsibilities: (обязаности)' smoll=true}}
+                    <ul>
+                        {{#each responsibilities}}
+                        <li>{{this}}</li>
+                        {{/each}}
+                    </ul>
+
+                    {{> title data='Information about the company:' big=false}}
+
+                    <ul>
+                        <li>Year founded: {{year_founded}}</li>
+                        <li>Industry: {{industry}}</li>
+                        <li>{{> title_wish data='Employees (сотрудники):' smoll=true}}
+                            <ul>
+                                {{#each employees}}
+                                <li>{{> title_wish data=name smoll=true}}
+                                    {{position}};
+                                    <br>
+                                    {{department}};
+                                    {{> title_wish data='Projects:' smoll=false}}
+                                    <br>
+                                    <ol>
+                                        {{#each projects}}
+                                        <li>{{> title_wish data=name smoll=false}}
+
+                                            <em>{{description}}</em>
+                                            <br>
+                                            <em>Status: {{status}}</em>
+                                            <br>
+                                            {{> title_wish data='Teams:' smoll=false}}
+                                            <ul>
+                                                {{#each teams}}
+                                                <li>{{team_name}}</li>
+
+                                                {{> title_wish data='Team Leader:' smoll=false}}
+
+                                                {{#with team_leader}}
+                                                {{name}} |
+                                                {{title}} |
+                                                {{email}}
+                                                {{/with}}
+                                                <br>
+
+                                                <br>
+                                                {{> title_wish data='Team members (члены команды):' smoll=false}}
+                                                <ul>
+                                                    {{#each team_members}}
+                                                    <li>{{> title_wish data=name smoll=false}}</li>
+
+                                                    {{title}} | {{email}}
+
+                                                    {{> title_wish data='Skills:' smoll=false}}
+                                                    <ul>
+                                                        {{#each skills}}
+                                                        <li>{{this}}</li>
+                                                        {{/each}}
+                                                    </ul>
+                                                    <br>
+
+
+                                                    {{> title_wish data='Projects:' smoll=false}}
+
+                                                    <ol>
+                                                        {{#each projects}}
+                                                        <li>{{name}}</li>
+
+                                                        <em>{{description}}</em>
+
+                                                        <br>
+                                                        {{> title_wish data='technologies:' smoll=false}}
+
+                                                        <ul>
+                                                            {{#each technologies}}
+                                                            <li>{{this}}</li>
+                                                            {{/each}}
+                                                        </ul>
+
+                                                        <br>
+                                                        {{> title_wish data='Team members:' smoll=false}}
+
+                                                        <ul>
+                                                            {{#each team_members}}
+                                                            <li>
+                                                                {{name}};
+                                                                <br>
+                                                                {{title}}
+                                                            </li>
+                                                            <br>
+                                                            {{/each}}
+                                                        </ul>
+
+                                                        {{/each}}
+                                                    </ol>
+                                        </li>
+
+                                        {{/each}}
+                            </ul>
+
+                    </ul>
+
+
+                </li>
+
+
+                {{/each}}
+
+
+            </ul>
+            {{/each}}
+            </ol>
+
+            </li>
+            </ul>
+            </li>
+            <br>
+
+
+
+
+
+
+
+
+
+            {{/each}}
+            </ul>
+            </li>
+
+
+            </ul>
+
+
+
+
+
+
+            </li>
+
+            </li>
+
+
+
+
+
+            {{/each}}
+            </ul>
+
+        </section>
+
+    </main>
+
+    {{/with}}
+</div>

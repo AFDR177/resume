@@ -1,0 +1,167 @@
+<div>
+    <main>
+        <section>
+            <h1>{{name}}</h1>
+        </section>
+        <hr>
+        <section>
+            {{> title data='General info' big=true}}
+            <ul>
+                {{> name name='Birth date' info=birthdate}}
+                {{> name name='Birth place' info=birthplace}}
+                {{> name name='Death date' info=deathdate}}
+                {{> name name='Deathp lace' info=deathplace}}
+                {{> name name='Nationality' info=nationality}}
+                {{> name name='Occupation' info=occupation}}
+                {{> name name='Known for'}}
+                <ul>
+                    {{#each known_for}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+                </li>
+            </ul>
+        </section>
+        <hr>
+        <section>
+            {{> title data='Education' big=true}}
+            <ul>
+                {{#each education}}
+                <li>
+                    {{degree}}
+                    <br>
+                    <em>{{field}} / {{institution}} / {{year}}</em>
+
+                </li>
+                <br>
+                {{/each}}
+            </ul>
+            {{!-- {{> title data='Education' big=true}}
+            <ul>
+                {{#each education}}
+                <li>
+                    {{degree}}
+                    <br>
+                    {{field}}
+                    <br>
+                    {{institution}}
+                    <br>
+                    {{year}}
+                </li>
+                {{/each}}
+            </ul> --}}
+        </section>
+        <hr>
+        <section>
+            {{> title data='Notable publications' big=true}}
+
+            {{!-- {{> wish base=notable_publications tit=title}} --}}
+
+            <ul>
+                {{#each notable_publications}}
+                {{> abc a=title b=publisher c=year }}
+                {{/each}}
+            </ul>
+        </section>
+        <hr>
+        <section>
+            {{> title data='Partners' big=true}}
+
+
+            {{!-- {{> wish base=partners }} --}}
+
+            <ul>
+                {{#each partners}}
+                {{> abc a=name b=relationship c=years }}
+
+                {{/each}}
+            </ul>
+        </section>
+
+        <hr>
+
+        <section>
+            {{> title data='Awards' big=true}}
+            <ul>
+                {{#each awards}}
+                <li>
+                    {{title}}
+                    <br>
+                    <em>{{description}} / {{year}}</em>
+
+                </li>
+                <br>
+                {{/each}}
+            </ul>
+        </section>
+        <hr>
+        <section>
+            {{> title data='Other' big=true}}
+            <div>
+                {{> title data='Influences:' big=false}}
+                <ul>
+                    {{#each influences}}
+                    <li>
+                        {{this}}
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+
+            <div>
+                {{> title data='Influenced:' big=false}}
+                <ul>
+                    {{#each influenced}}
+                    <li>
+                        {{this}}
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+
+            <div>
+                {{> title data='Quotes:' big=false}}
+                <ul>
+                    {{#each quotes}}
+                    <li>
+                        {{this}}
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div>
+                {{> title data='Major discoveries' big=false}}
+                <ul>
+                    {{#each major_discoveries}}
+                    <li>
+                        {{title}}
+                        <br>
+                        <em>{{description}} / {{year}}</em>
+
+                    </li>
+                    <br>
+                    {{/each}}
+                </ul>
+            </div>
+            <div>
+                {{> title data='Contributions' big=false}}
+                {{#with contributions}}
+                {{!-- {{> name name='Title' info=title}}
+                {{> name name='Description' info=description}}
+                {{> name name='Year' info=year}}
+                {{> name name='Field' info=field}} --}}
+
+                <b>{{title}} -</b>
+                <em>{{description}}</em>
+                <br>
+                <br>
+                <em>{{year}}</em>
+                <br>
+                <br>
+                <em>{{field}}</em>
+                {{/with}}
+
+            </div>
+        </section>
+    </main>
+</div>

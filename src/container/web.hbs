@@ -1,0 +1,87 @@
+<div>
+    <main>
+        <ol>
+            <h1>Languages</h1>
+            {{#each web.languages}}
+            <li>
+                <strong>{{name}}</strong> - {{version}}
+            </li>
+            <em>{{description}}</em>
+            <br>
+            <br>
+            <div>
+                <ul>
+                    {{#with elements}}
+                    {{> title_wish data='Elements:' smoll=true}}
+                    {{/with}}
+                    <br>
+
+                    {{#each elements}}
+                    <li><b>{{name}}</b> - <em>{{description}}</em></li>
+                    <br>
+                    <ul>
+                        {{#with attributes}}
+                        {{> title_wish data='Attributes:' smoll=false}}
+                        {{/with}}
+
+                        {{#each attributes}}
+                        <li><b>{{name}}</b> - <em>{{description}}</em></li>
+                        {{/each}}
+                        <br>
+                    </ul>
+                    {{/each}}
+
+                    {{!-- {{> wish }} --}}
+
+                    {{#with properties}}
+                    {{> title_wish data='Properties:' smoll=false}}
+                    {{/with}}
+
+                    {{#each properties}}
+                    <li><b>{{name}}</b> - <em>{{description}}</em><br>
+                        <br>
+                        <ul>
+                            {{#with values}}
+                            {{> title_wish data='Values:' smoll=false}}
+                            {{/with}}
+                            {{#each values}}
+                            <li>{{value}} - {{description}}</li>
+                            {{/each}}
+                        </ul>
+                    </li>
+                    <br>
+                    {{/each}}
+
+
+
+                    <div>
+                        {{#with functions}}
+                        {{> title_wish data='Functions:' smoll=false}}
+                        {{/with}}
+
+                        {{#each functions}}
+                        <li><b>{{name}}</b> - <em>{{description}}</em>
+                            <br>
+                            <br>
+                            <ul>
+                                {{#with parameters}}
+                                {{> title_wish data='Parameters' smoll=false}}
+                                {{/with}}
+                                {{> wish1 list1=parameters}}
+                            </ul>
+                        </li>
+                        <br>
+                        {{/each}}
+                    </div>
+
+
+                </ul>
+                <br>
+
+            </div>
+
+            {{/each}}
+        </ol>
+
+    </main>
+</div>

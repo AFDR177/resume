@@ -1,0 +1,98 @@
+<main>
+    <h1>{{name}} <span class="badge bg-secondary">JS</span></h1>
+
+    <em>{{description}} </em>
+    <br>
+    <hr>
+    <div>
+        <p>
+            {{> title big=false data='History'}}
+            {{#with history}}
+            <b>Year:</b> {{year}}
+            <br>
+            <b>Founder:</b> {{founder}}
+            {{/with}}
+        </p>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                aria-expanded="false"> Types
+            </button>
+            <ul class="dropdown-menu">
+                {{!-- {{#each types}} --}}
+                <li><a class="dropdown-item" href="#">Number</a></li>
+                <li><a class="dropdown-item" href="#">Number</a></li>
+                <li><a class="dropdown-item" href="#">Number</a></li>
+                {{!-- {{/each}} --}}
+            </ul>
+        </div>
+
+        <p>
+            {{> title big=false data='Syntax'}}
+        <ul>
+            {{#with syntax}}
+            <li>
+                <b>Variables:</b>
+                {{#each variables}}
+                {{this}},
+                {{/each}}
+            </li>
+            <li>
+                <b>Functions:</b>
+                {{#each functions}}
+                {{this}},
+                {{/each}}
+            </li>
+            <li>
+                <b>Conditionals:</b>
+                {{#each conditionals}}
+                {{this}},
+                {{/each}}
+            </li>
+            <li>
+                <b>Loops:</b>
+                {{#each loops}}
+                {{this}},
+                {{/each}}
+            </li>
+            <li>
+                <b>Classes:</b>
+                {{#each classes}}
+                {{this}}
+                {{/each}}.
+            </li>
+            {{/with}}
+        </ul>
+        </p>
+        <p>
+            {{> title big=false data='Features'}}
+        <ul>
+            {{#each features}}
+            <li>{{this}};</li>
+            {{/each}}
+        </ul>
+        </p>
+        <p>
+            {{> title big=false data='Tools'}}
+        <ul>
+            {{#each tools}}
+            <li>{{this}};</li>
+            {{/each}}
+        </ul>
+        </p>
+        <p>
+            {{> title big=false data='Community'}}
+        <ul>
+            {{#each community}}
+            <li>
+                <b>Name:</b> {{name}}
+                <br>
+                <b>Type:</b> {{type}}
+            </li>
+            <br>
+            {{/each}}
+        </ul>
+        </p>
+    </div>
+
+</main>

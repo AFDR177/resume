@@ -1,0 +1,95 @@
+<div>
+    <main>
+        {{#with program.excursion}}
+        <section>
+            <h1>{{name}}</h1>
+            {{#with location}}
+            <em>{{city}}</em>
+            <br>
+            <em>{{country}}</em>
+            {{/with}}
+            <br>
+            <em>{{date}}</em>
+        </section>
+        <hr>
+        <section>
+            <ul>
+                {{#each program}}
+                <li>{{> title data=name big=true}}
+                    <p><b>Type:</b> {{type}}</p>
+                    <b>Duration:</b> {{duration}} hours
+                    <br>
+                    <br>
+
+                    <div>
+                        <div>
+                            {{#with details.museum}}
+                            <b>Museum:</b> {{name}}<br>
+                            {{#with location}}
+                            <b>Location:</b> {{address}}, {{city}}, {{country}}
+                            {{/with}}
+                        </div>
+                        <p>{{> title_wish data='Exhibits:' smoll=true}}</p>
+                        <ul>
+                            {{#each exhibits}}
+                            <li>
+                                {{name}}
+                                <br>
+                                {{#if artist includeZero=true}} {{artist}}
+                                {{else}}
+                                {{#unless artist includeZero=true}} <em>(No artist)</em>
+                                {{/unless}}
+                                {{/if}}
+                                <br>
+                                {{description}}
+                                <br>
+                                {{#if audio_guide}} With audio guide :-) {{/if}}
+                                <br>
+                            </li>
+                            <br>
+                            {{/each}}
+                        </ul>
+                        {{/with}}
+                    </div>
+
+                    <div>
+                        {{#with details.venue}}
+                        {{> title_wish data='Venue:' smoll=true}}
+                        {{name}}<br>
+                        {{#with location}}
+                        {{address}}, {{city}}, {{country}}
+                        {{/with}}
+                        {{/with}}
+                        <br>
+                        <br>
+                        {{#with details.venue}}
+                        {{> title_wish data='Performers:' smoll=true}}
+                        {{/with}}
+                        <ul>
+                            {{#each details.performers}}
+                            <p>
+                                <li><b>{{name}}</b></li> <em>{{type}}</em>
+                            </p>
+                            {{/each}}
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p>{{> title_wish data='Guide:' smoll=true}}</p>
+                        {{#with details.guide}}
+                        Name: {{name}}
+                        <br>
+                        Language: {{language}}
+                        <br>
+                        Rating: {{rating}}
+                        {{/with}}
+                    </div>
+                </li>
+                <br>
+                <hr>
+                {{/each}}
+            </ul>
+        </section>
+        {{/with}}
+    </main>
+</div>

@@ -1,0 +1,154 @@
+<main>
+    <div style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">{{name}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">users</li>
+        </ol>
+    </div>
+
+    <div class="p-3 mb-2 bg-primary text-white">
+        <h1>{{name}} <span class="badge bg-secondary">F</span></h1>
+    </div>
+
+    <div>
+        {{!-- <div class="p-3 mb-2 bg-success text-white">{{> title big=true data='Users:'}}</div> --}}
+        <ul>
+            {{#with users.[0]}}
+            <li class="text-success">{{> user}}</li>
+            <ul>
+                {{!-- 1018 Frand 1 --}}
+                <div>
+                    {{> title_wish smoll=true data='Friends >'}}
+                    {{#with friends.[0]}}
+                    <li>{{> user}}</li>
+                    <ul>
+                        {{> title_wish smoll=false data='Mutual_friends >'}}
+                        <div>
+                            {{#with mutual_friends.[0]}}
+                            <li>{{> user}}</li>
+                            {{/with}}
+                        </div>
+                    </ul>
+                    {{/with}}
+                </div>
+
+                {{!-- 1032 Frand 2 --}}
+                <div>
+                    {{#with friends.[1]}}
+                    <li>{{> user}}</li>
+                    <ul>
+                        {{> title_wish smoll=false data='Mutual_friends >'}}
+                        <div>
+                            {{#with mutual_friends.[0]}}
+                            <li>{{> user}}</li>
+                            {{/with}}
+                        </div>
+                    </ul>
+                    {{/with}}
+                </div>
+                <br>
+                <br>
+                {{!-- 1046 GROUP 1 --}}
+                <div class="p-3 mb-2 bg-success-subtle text-emphasis-success">
+                    {{> title_wish smoll=true data='Groups:'}}
+
+                    {{#with groups.[0]}}
+                    <li class="text-success-emphasis">{{> groups}}</li>
+                    <ul>
+                        {{> title_wish smoll=false data='members >'}}
+                        <div>
+                            {{#with members.[0]}}
+                            <li>{{> user}}</li>
+                            {{/with}}
+                        </div>
+                    </ul>
+                    {{/with}}
+                </div>
+
+                {{!-- 1062 Group 2 --}}
+                <div class="p-3 mb-2 bg-success-subtle text-emphasis-success">
+                    {{#with groups.[1]}}
+                    <li class="text-success-emphasis">{{> groups}}</li>
+                    <ul>
+                        {{> title_wish smoll=false data='members >'}}
+                        <div>
+                            {{#with members.[0]}}
+                            <li>{{> user}}</li>
+                            {{/with}}
+                        </div>
+                        <div>
+                            {{#with members.[1]}}
+                            <li>{{> user}}</li>
+                            {{/with}}
+                        </div>
+                    </ul>
+                    {{/with}}
+                </div>
+            </ul>
+            {{/with}}
+
+            {{!--1084 USER 2 --}}
+            {{#with users.[1]}}
+            <li class="text-success">{{> user}}</li>
+            <ul>
+                {{!-- 1090 Frand 1 --}}
+                <div>
+                    {{> title_wish smoll=true data='Friends >'}}
+                    {{#with friends.[0]}}
+                    <li>{{> user}}</li>
+                    <ul>
+                        {{> title_wish smoll=false data='Mutual_friends >'}}
+                        <div>
+                            {{#each mutual_friends}}
+                            <li>{{> user}}</li>
+                            {{/each}}
+
+                            {{#with mutual_friends.[1]}}
+                            <ul>
+                                {{> title_wish smoll=false data='Mutual_friends >'}}
+                                <div>
+                                    {{#each mutual_friends}}
+                                    <li>{{> user}}</li>
+                                    {{/each}}
+                                </div>
+                            </ul>
+                            {{/with}}
+
+                        </div>
+                    </ul>
+                    {{/with}}
+                </div>
+
+                {{!-- 1118 GROUP 3 --}}
+                <div class="p-3 mb-2 bg-success-subtle text-emphasis-success">
+                    {{> title_wish smoll=true data='Groups:'}}
+
+                    {{#with friends.[0].groups.[0]}}
+                    <li class="text-success-emphasis">{{> groups}}</li>
+                    <ul>
+                        {{> title_wish smoll=false data='members >'}}
+                        <div>
+                            {{#each members}}
+                            <li>{{> user}}</li>
+                            {{/each}}
+                        </div>
+                    </ul>
+                    {{/with}}
+
+                    {{#with friends.[0].groups.[1]}}
+                    <li class="text-success-emphasis">{{> groups}}</li>
+                    <ul>
+                        {{> title_wish smoll=false data='members >'}}
+                        <div>
+                            {{#each members}}
+                            <li>{{> user}}</li>
+                            {{/each}}
+                        </div>
+                    </ul>
+                    {{/with}}
+                </div>
+            </ul>
+            {{/with}}
+        </ul>
+    </div>
+</main>

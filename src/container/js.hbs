@@ -14,16 +14,13 @@
             {{/with}}
         </p>
 
-        <div class="btn-group">
-            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
-                aria-expanded="false"> Types
-            </button>
-            <ul class="dropdown-menu">
-                {{!-- {{#each types}} --}}
-                <li><a class="dropdown-item" href="#">Number</a></li>
-                <li><a class="dropdown-item" href="#">Number</a></li>
-                <li><a class="dropdown-item" href="#">Number</a></li>
-                {{!-- {{/each}} --}}
+        <div>
+            {{> title big=false data='Types'}}
+            <ul class="list-group">
+                {{#each types}}
+                <li class="list-group-item">{{this}}</li>
+
+                {{/each}}
             </ul>
         </div>
 
@@ -82,12 +79,13 @@
         </p>
         <p>
             {{> title big=false data='Community'}}
-        <ul>
+            <a href="#" class="link-primary">{{community.name}}</a>
+        <ul class="hstack gap-3">
             {{#each community}}
             <li>
-                <b>Name:</b> {{name}}
+                <a href="#" class="link-primary">{{name}}</a>
                 <br>
-                <b>Type:</b> {{type}}
+                <div class="bg-body-tertiary border">{{type}}</div>
             </li>
             <br>
             {{/each}}

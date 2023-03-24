@@ -1,0 +1,168 @@
+<main class="p-5">
+    <div class="row">
+        {{!-- BLOCK 1 - шапка --}}
+        <div class="col-7">
+            <h1>{{navigation.Logo}}</h1>
+        </div>
+
+        <div class="col-5 mb-4">
+            <div class="nav">
+                {{#with navigation}}
+                {{#each links}}
+
+                <div class="nav-item">
+                    <a href={{href}} target="_blank" class="nav-link active">{{text}}</a>
+                </div>
+                {{/each}}
+                {{/with}}
+                <div class="nav-item">
+                    <a href="#" class="nav-link disabled">Disabled</a>
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-2">
+        {{!-- BLOCK 2 - хлебные крошки --}}
+
+        <div class="col-12 my-5">
+            <ol class="breadcrumb">
+                {{#each breadcrumb}}
+                {{#if url}}
+                <li class="breadcrumb-item">
+                    <a href={{url}} class="active">{{name}}</a>
+                </li>
+                {{else}}
+                <li class="breadcrumb-item">
+                    <span class="text-secondary">{{name}}</span>
+                </li>
+                {{/if}}
+                {{/each}}
+            </ol>
+        </div>
+
+        {{!-- BLOCK 3 - карточка товара --}}
+
+        <div class="col-6">
+            {{#with productData}}
+            <img class="card-img-top mb-5" src={{img}} alt="product foto">
+            <div class="card">
+                <div class="card-body">
+
+                    {{#with info}}
+                    <h5>{{title}}</h5>
+                    <p>{{about}}</p>
+                    <div class="display-6">{{price}}</div>
+                    {{#each category}}
+                    {{#if isHot}}
+                    <button class="btn btn-warning btn-sm  rounded-pill text-light px-3">{{name}}</button>
+                    {{/if}}
+                    {{#if isNew}}
+                    <button class="btn btn-primary btn-sm  rounded-pill text-light px-3">{{name}}</button>
+                    {{/if}}
+                    {{#if isBonus}}
+                    <button class="btn btn-info btn-sm rounded-pill text-light px-2"> {{name}} </button>
+                    {{/if}}
+                    {{/each}}
+                    {{/with}}
+                </div>
+            </div>
+            {{/with}}
+        </div>
+        {{!-- BLOCK 4 - пустая колонка --}}
+        <div class="col-1">
+        </div>
+        {{!-- BLOCK 5 - таблица --}}
+        {{#with productData}}
+        <div class="col-5">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        {{#each item.head}}
+                        <th>{{this}}</th>
+                        {{/each}}
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {{#each item.body}}
+                    <tr>
+                        <th>
+                            {{[0]}}
+                        </th>
+                        <td>
+                            {{[1]}}
+                        </td>
+                        <td>
+                            {{[2]}}
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+
+            {{!-- BLOCK 6 - список --}}
+            {{#with param}}
+            <div class="list-group">
+                <div class="card card-header">{{title}}</div>
+                {{#each list}}
+                <div class="list-group-item">{{this}}</div>
+                {{/each}}
+            </div>
+            {{/with}}
+
+            {{!-- BLOCK 7 - ALERT --}}
+            <div class="mt-5">
+                {{#with alert}}
+                {{#if isError}}
+                <div class="alert alert-danger">
+                    <span>{{text}}</span>
+                </div>
+                {{/if}}
+                {{/with}}
+            </div>
+        </div>
+        {{!-- BLOCK 8 - Кнопки (actionList) --}}
+        <div class="col 12 mt-5">
+            <div class="card py-2">
+                <div class="nav">
+                    {{#each actionList}}
+                    {{#if isWarning}}
+                    <button class="btn btn-warning text-light px-5 mx-3">{{name}}</button>
+                    {{/if}}
+                    {{#if isError}}
+                    <button class="btn btn-outline-danger px-5 mx-3">{{name}}</button>
+                    {{/if}}
+                    {{#if isSuccess}}
+                    <button class="btn btn-success text-light px-5 mx-3">{{name}}</button>
+                    {{/if}}
+                    {{#if isGood}}
+                    <button class="btn btn-outline-success px-5 mx-3">{{name}}</button>
+                    {{/if}}
+
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        {{/with}}
+
+
+        <hr class="my-5">
+
+        <div class="col-12">
+            goodsOtherBlock
+        </div>
+
+        <hr class="my-5">
+
+        <div class="col-12">
+            service
+        </div>
+
+        <hr class="my-5">
+
+        <div class="col-12">
+            footer
+        </div>
+    </div>
+
+</main>

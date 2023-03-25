@@ -1995,7 +1995,7 @@ router.get('/shopproduct', function (req, res) {
           description:
             "Apple's high-end laptop features a 16-inch Retina display, powerful M1 Pro or M1 Max chip, and up to 64GB of RAM.",
           isHot: true,
-          idNew: false,
+          idNew: true,
         },
         {
           image: 'https://picsum.photos/400/200',

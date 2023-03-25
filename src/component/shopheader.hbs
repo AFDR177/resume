@@ -1,0 +1,21 @@
+<div class="row mt-4 ms-5">
+    <div class="col-8">
+        <h1>{{navigation.Logo}}</h1>
+    </div>
+
+    <div class="col-4 mt-2">
+        <div class="nav">
+            {{#with navigation}}
+            {{#each links}}
+
+            <div class="nav-item">
+                <a href={{href}} target="_blank" class="nav-link active">{{text}}</a>
+            </div>
+            {{/each}}
+            {{/with}}
+            <div class="nav-item">
+                <a href="#" class="nav-link disabled">Disabled</a>
+            </div>
+        </div>
+    </div>
+</div>

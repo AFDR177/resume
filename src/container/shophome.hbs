@@ -1,26 +1,6 @@
 <main class="py-3 px-5">
-    <hr>
     <div class="row">
-        {{!-- BLOCK 1 - navigation --}}
-        <div class="col-7">
-            <h1>{{navigation.Logo}}</h1>
-        </div>
-
-        <div class="col-5">
-            <div class="nav">
-                {{#with navigation}}
-                {{#each links}}
-                <div class="nav-item">
-                    <a href={{href}} class="nav-link active">{{text}}</a>
-                </div>
-                {{/each}}
-                {{/with}}
-                <div class="nav-item">
-                    <a href="#" class="nav-link disabled">Disabled</a>
-                </div>
-            </div>
-        </div>
-
+        {{!-- BLOCK 1 - navigation in layout --}}
 
         {{!-- BLOCK 2 - newsBlock --}}
         {{#with newsBlock}}

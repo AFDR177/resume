@@ -1,0 +1,89 @@
+<main class="px-5 py-3">
+    <div class="row">
+        {{!-- BLOCK 1 - хлебные крошки --}}
+        <div class="col-12 my-3">
+            <ol class="breadcrumb">
+                {{#each breadcrumb}}
+                {{#if url}}
+                <li class="breadcrumb-item">
+                    <a href={{url}} class="active">{{name}}</a>
+                </li>
+                {{else}}
+                <li class="breadcrumb-item">
+                    <span class="text-secondary">{{name}}</span>
+                </li>
+                {{/if}}
+                {{/each}}
+            </ol>
+        </div>
+
+        {{!-- BLOCK 2 - newsData --}}
+
+        {{#with newsData}}
+        <div class="col-12">
+            <img width=1100 height=300 src={{newsData.photo}}>
+        </div>
+
+        <section class="my-4">
+            {{#with head}}
+            {{> title big=true data=heading}}
+            <div>
+                <p>
+                    {{description}}
+                </p>
+            </div>
+            {{/with}}
+        </section>
+        <section class="mb-3">
+            {{#each body}}
+            {{> title big=false data=title}}
+            <div>
+                <p>
+                    {{text}}
+                </p>
+            </div>
+            {{/each}}
+        </section>
+        {{/with}}
+
+        <hr class="my-4">
+
+        {{!-- BLOCK 3 - карточки инфо (newsOtherBlock) --}}
+
+        {{#with newsOtherBlock}}
+        <div class="mt-5 mb-1">
+            <h2 class="text-center">{{title}}</h2>
+        </div>
+
+        {{#each cards}}
+        <div class="col-3 mb-2">
+
+            <div class="card text-bg-light">
+                <div class="card-header text-bg-dark">
+                    {{title}}
+                    {{#if isTop}}
+                    <span class="badge text-bg-danger rounded-pill text-capitalize">
+                        Топ
+                    </span>{{/if}}
+                    {{#if idNew}}
+                    <span class="badge text-bg-success rounded-pill text-capitalize">
+                        Нова
+                    </span>
+                    {{/if}}
+                </div>
+                <hr class="my-0">
+                <div class="text-bg-dark px-2">
+                    <p class="card-title">{{description}}</p>
+                </div>
+            </div>
+
+        </div>
+        {{/each}}
+        {{/with}}
+
+        <hr class="my-5">
+
+        {{!-- BLOCK 4 - (service) --}}
+        {{> shopservice}}
+
+</main>

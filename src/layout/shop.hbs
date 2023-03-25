@@ -16,10 +16,14 @@
 </head>
 
 <body>
-
+	{{> shopheader}}
+	<hr class="mb-2">
 	{{! ↓ ця кострукція показує куди шаблонізатору треба вставляти код з container файлу --}}
 	{{{body}}}
 
+	<hr class="my-5">
+	{{!-- BLOCK 11- (footer) --}}
+	{{> shopfooter}}
 
 </body>
 

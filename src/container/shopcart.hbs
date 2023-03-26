@@ -1,0 +1,63 @@
+<main class="ps-5">
+    <div class="row">
+        {{#with header}}
+        <div class="col-9 ps-5 my-3">
+            {{> title big=true data=title}}
+        </div>
+        {{!-- КОШИК --}}
+        <div class="col-3 my-4">
+            {{#with button}}
+            <button class="btn btn-outline-secondary">{{text}}</button>
+            {{/with}}
+        </div>
+        {{/with}}
+
+        <hr class="my-3">
+
+        {{!-- СПИСОК КАРТОЧЕК ТОВАРОВ --}}
+
+        {{> cartGoodsitem}}
+
+
+        <hr class="my-3">
+
+        {{#with total}}
+        <div class="col-8 my-5">
+            {{> title big=false data=title}}
+            <div class="display-5">{{amount}}</div>
+            <div>{{delivery}}</div>
+        </div>
+
+        <div class="col-4 my-5">
+            {{#each buttons}}
+            {{#if isSuccess}}
+            <div>
+                <button src={{link}} class="btn btn-success mb-4">{{text}}</button>
+            </div>
+            {{/if}}
+            {{#if isOutline}}
+            <div>
+                <button src={{link}} class="btn btn-outline-success">{{text}}</button>
+            </div>
+            {{/if}}
+            {{/each}}
+
+        </div>
+        {{/with}}
+
+        <hr class="my-3">
+
+        <div class="col-12 mt-3">
+            <h2 class="text-center">{{goodsOtherBlock.title}}</h2>
+        </div>
+
+        {{#with goodsOtherBlock}}
+        {{> shopcards}}
+        {{/with}}
+
+
+        <hr class="my-5">
+
+        {{> shopsubscribe }}
+    </div>
+</main>

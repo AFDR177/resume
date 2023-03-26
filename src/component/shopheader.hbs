@@ -1,9 +1,9 @@
-<div class="row mt-4 ms-5">
+<div class="row mt-4 ps-5">
     <div class="col-8">
         <h1>{{navigation.Logo}}</h1>
     </div>
 
-    <div class="col-4 mt-2 ps-5">
+    <div class="col-4 mt-2 ps-2">
         <div class="nav">
             {{#with navigation}}
             {{#each links}}
@@ -17,6 +17,9 @@
             </div>
             {{/if}}
             {{/each}}
+            <div class="nav-item">
+                <a href="#" class="nav-link disabled">Disabled</a>
+            </div>
             {{/with}}
         </div>
     </div>

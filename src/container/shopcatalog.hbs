@@ -1,0 +1,172 @@
+<main class="px-5">
+    <div class="row g-3">
+
+        {{!-- хлебные крошки --}}
+        <div class="col-12 my-5">
+            {{> shopbreadcrumb}}
+        </div>
+
+        <h1>{{header}}</h1>
+
+        {{!-- сортировка (выпадающий списко) --}}
+        <div class="row gy-3">
+            {{#each sortBlock}}
+            <div class="col-3 p-3">
+                <select class="form-select">
+                    <option selected class="text-muted">{{placeholder}}</option>
+                    {{#each options}}
+                    <option value={{value}}>{{text}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            {{/each}}
+        </div>
+
+        {{!-- ФИЛЬТР --}}
+
+
+        {{!-- Выбор фильтров --}}
+        <div class="row">
+            <div class="col-4 p-3">
+                <div class="card p-3">
+                    {{#with filterBlock}}
+
+                    {{!-- sellers --}}
+                    {{#with sellers}}
+                    <div class="form-label">{{title}}</div>
+
+                    {{#each list}}
+                    <div class="form-check">
+                        <lable class="form-check-lable">{{value}}</lable>
+                        <input name="hiTeh" type="checkbox" class="form-check-input ps-1">
+                    </div>
+                    {{/each}}
+                    {{/with}}
+
+                    <hr class="my-3">
+
+                    {{#with brands}}
+                    <div class="form-label">{{title}}</div>
+
+                    <input type="search" class="form-control my-2" placeholder="{{input.placeholder}}">
+
+                    {{#each options}}
+                    <div class="form-check my-1">
+                        <lable class="form-check-lable">{{value}}</lable>
+                        <input name="hiTeh" type="checkbox" class="form-check-input ps-1">
+                    </div>
+                    {{/each}}
+                    {{/with}}
+
+                    <hr class="my-3">
+
+                    {{#with price}}
+                    <div>{{title}}</div>
+
+                    {{!-- price: --}}
+                    <div class="row">
+                        <div class="col-4">
+                            <input min={{range.from}} class="form-control my-2" placeholder="{{range.from}}">
+                        </div>
+                        <div class="col-4">
+                            <input max={{range.to}} class="form-control my-2" placeholder="{{range.to}}">
+                        </div>
+                        <div class="col-4">
+                            <button src={{button.link}} class="btn btn-outline-secondary my-2">{{button.text}}</button>
+                        </div>
+                    </div>
+                    {{/with}}
+
+                    <hr class="my-3">
+
+                    {{!-- filterList --}}
+                    {{#each filterList}}
+                    <div class="form-label">{{title}}</div>
+                    {{#each options}}
+                    <div class="form-check">
+                        <lable class="form-check-lable">{{value}}</lable>
+                        <input name="hiTeh" type="checkbox" class="form-check-input ps-1">
+                    </div>
+                    {{/each}}
+                    {{#unless @last}}
+                    <hr class="my-3">
+                    {{/unless}}
+                    {{/each}}
+
+
+                    {{/with}} {{!-- filterBlock --}}
+                </div>
+            </div>
+
+
+            {{!-- колонки с товарами (группа карточек) --}}
+            <div class="col-8">
+                <div class="row">
+                    {{#each goodsList}}
+                    <div class="col-6 my-2">
+                        <div class="card-group h-100 my-3">
+                            <div class="card h-100">
+                                <img class="card-img-top" src={{img}} alt="product foto">
+                                <div class="card-body">
+                                    <p>
+                                        {{#if isHot}}
+                                        <span
+                                            class="badge text-bg-warning rounded-pill text-light text-uppercase mx-1">hot!</span>
+                                        {{/if}}
+                                        {{#if isNew}}
+                                        <span
+                                            class="badge text-bg-primary rounded-pill text-light text-capitalize">Нове</span>
+                                        {{/if}}
+                                    </p>
+                                    <p>
+                                        {{#if isFast}}
+                                        <button class="btn btn-success text-capitalize mx-1">Швидка доставка</button>
+                                        {{/if}}
+                                    </p>
+                                    <p>
+                                        {{#if isFree}}
+                                        <button class="btn btn-secondary text-capitalize mx-1">Безкоштовна
+                                            доставка</button>
+                                        {{/if}}
+                                    </p>
+
+                                    <h5>{{name}}</h5>
+
+                                    <p>{{review.amount}} {{review.text}}</p>
+                                    <div class="display-6"><b>{{price}}</b></div>
+                                    <p class="my-3">{{delivery}}</p>
+                                    {{#each buttons}}
+                                    <p>
+                                        {{#if isPrimary}}
+                                        <button src={{link}} class="btn btn-primary mx-1">{{text}}</button>
+                                        {{/if}}
+                                    </p>
+                                    <p>
+                                        {{#if isSecondary}}
+                                        <button src={{link}} class="btn btn-secondary mx-1">{{text}}</button>
+                                        {{/if}}
+                                    </p>
+                                    {{/each}}
+
+                                    <ul>
+                                        {{#each characteristics}}
+                                        <li>{{title}}: {{value}}</li>
+                                        {{/each}}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+
+        {{!-- Сервис --}}
+        <div class="col-12 p-3">
+            {{> shopservice}}
+        </div>
+
+
+    </div>
+</main>

@@ -1,0 +1,183 @@
+<main class="p-5">
+    <div class="row">
+        <div>
+            {{> title big=true data=header}}
+        </div>
+
+        {{!-- purchase \/ --}}
+
+        {{!-- вкладки --}}
+        {{#with purchase}}
+        <div class="col-12 my-3">
+            <div class="nav nav-tabs">
+                {{#each tabs}}
+                <div class="nav-item">
+                    {{#if @first}}
+                    <a class="nav-link active px-5">{{this}}</a>
+                    {{else}}
+                    <div>
+                        <a class="nav-link px-5">{{this}}</a>
+                    </div>
+                    {{/if}}
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+        {{!-- поиск и кнопки --}}
+        <div class="nav">
+            {{#with actionBlock}}
+            <div class="nav-item">
+                <input class="form-control pe-5" type="search" placeholder={{input.placeholder}}>
+            </div>
+            {{#each buttons}}
+            <div class="nav-item">
+                {{#if isSuccess}}
+                <button src={{link}} class="btn btn-success mx-2">{{text}}</button>
+                {{/if}}
+                {{#if isOutline}}
+                <button src={{link}} class="btn btn-outline-success mx-2">{{text}}</button>
+                {{/if}}
+                {{#if isDanger}}
+                <button src={{link}} class="btn btn-outline-danger mx-2 bi bi-trash3">{{text}}
+                    <span class="bi bi-trash3"></span></button>
+                {{/if}}
+            </div>
+            {{/each}}
+            <hr class="my-3">
+            {{/with}}
+        </div>
+
+        <div class="mt-4 mb-2">
+            <hr class="my-0">
+            <hr class="my-0">
+            <hr class="my-0">
+        </div>
+
+        {{!-- карточки заказов --}}
+        <div class="row g-2">
+            {{#each itemList}}
+
+            {{> purchaseitem}}
+
+            {{/each}}
+        </div>
+
+        <div class="my-5">
+            <hr class="my-0">
+            <hr class="my-0">
+            <hr class="my-0">
+        </div>
+
+        {{/with}}
+        {{!-- purchase /\ --}}
+
+
+        {{!-- userInfo Особиста інформація \/ --}}
+        {{#with userInfo}}
+        <div class="col-12 my-3">
+            {{> title big=false data=title }}
+        </div>
+
+        {{!-- КАрточка Особисті дані --}}
+        <div class="card p-3">
+            <div class="row g-3">
+                {{#with profileData}}
+                {{> title big=false data=title }}
+
+                {{#each fullName}}
+                <div class="col-4">
+                    <div>{{title}}</div>
+                    <h5>{{value}}</h5>
+
+                </div>
+                {{/each}}
+
+                {{#each otherInfo}}
+                <div class="col-4">
+                    <div>{{title}}</div>
+                    <h5>{{value}}</h5>
+                </div>
+                {{/each}}
+
+                {{/with}}
+
+                {{#each buttons}}
+                <div class="col-4">
+                    {{#if isPrimary}}
+                    <button src={{link}} class="btn btn-primary">{{text}}</button>
+                    {{/if}}
+                    {{#if isSecondary}}
+                    <button src={{link}} class="btn btn-outline-secondary">{{text}}</button>
+                    {{/if}}
+                    {{#if isDanger}}
+                    <button src={{link}} class="btn btn-outline-danger">{{text}}</button>
+                    {{/if}}
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+        {{!-- Карточка Отримувачі --}}
+        <div class="card p-3 my-2">
+            <div class="row g-3">
+
+                {{#with recipients}}
+                {{> title big=false data=title }}
+
+                {{#each users}}
+                <div class="col-4">
+                    <h5>{{name}}</h5>
+                    <div>{{phone}}</div>
+                    {{#with button}}
+                    <button src={{link}} class="btn btn-primary my-3">{{text}}</button>
+                    {{/with}}
+                </div>
+                {{/each}}
+                {{/with}}
+            </div>
+        </div>
+
+        {{!-- Карточка Контакти --}}
+        <div class="card p-3">
+            <div class="row g-3">
+                {{#with contacts}}
+                {{> title big=false data=title }}
+
+                {{#each contactData}}
+                <div class="col-4">
+                    <div>{{title}}</div>
+                    <h5>{{value}}</h5>
+                </div>
+                {{/each}}
+
+                {{#each otherInfo}}
+                <div class="col-4">
+                    <div>{{title}}</div>
+                    <h5>{{value}}</h5>
+                </div>
+                {{/each}}
+
+                {{/with}}
+
+                {{#each buttons}}
+                <div class="col-4">
+                    {{#if isPrimary}}
+                    <button src={{link}} class="btn btn-primary">{{text}}</button>
+                    {{/if}}
+                    {{#if isSecondary}}
+                    <button src={{link}} class="btn btn-outline-secondary">{{text}}</button>
+                    {{/if}}
+                    {{#if isDanger}}
+                    <button src={{link}} class="btn btn-outline-danger">{{text}}</button>
+                    {{/if}}
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+
+        {{/with}}
+        {{!-- userInfo Особиста інформація /\ --}}
+    </div>
+</main>

@@ -1,9 +1,9 @@
-<div class="row mt-4 ps-5">
+<div class="row gx-3 gy-0">
     <div class="col-8">
-        <h1>{{navigation.Logo}}</h1>
+        <h1 class="ms-5 pt-3">{{navigation.Logo}}</h1>
     </div>
 
-    <div class="col-4 mt-2 ps-2">
+    <div class="col-4 pt-4 ps-2">
         <div class="nav">
             {{#with navigation}}
             {{#each links}}
@@ -21,6 +21,10 @@
                 <a href="#" class="nav-link disabled">Disabled</a>
             </div>
             {{/with}}
+
         </div>
+    </div>
+    <div class="col-12">
+        <hr class="my-4 ms-5 me-5">
     </div>
 </div>

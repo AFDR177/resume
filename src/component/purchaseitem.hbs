@@ -11,9 +11,15 @@
 </div>
 
 <div class="col-4">
-    {{#each images}}
-    <img class="card-img-top mx-2" src={{this}} alt="foto">
-    {{/each}}
+
+    <div class="row">
+        {{#each images}}
+        <div class="col-4">
+            <img class="card-img-top mx-2" src={{this}} alt="foto">
+        </div>
+        {{/each}}
+    </div>
+
 </div>
 
 <div class="col-2">

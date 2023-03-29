@@ -46,8 +46,7 @@
                     </ul>
                     {{/with}}
                 </div>
-                <br>
-                <br>
+
                 {{!-- 1046 GROUP 1 --}}
                 <div class="p-3 mb-2 bg-success-subtle text-emphasis-success">
                     {{> title_wish smoll=true data='Groups:'}}
@@ -121,11 +120,13 @@
 
                 {{!-- 1118 GROUP 3 --}}
                 <div class="p-3 mb-2 bg-success-subtle text-emphasis-success">
+
                     {{> title_wish smoll=true data='Groups:'}}
 
                     {{#with friends.[0].groups.[0]}}
                     <li class="text-success-emphasis">{{> groups}}</li>
-                    <ul>
+
+                    <ul class="mb-3">
                         {{> title_wish smoll=false data='members >'}}
                         <div>
                             {{#each members}}

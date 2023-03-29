@@ -31,6 +31,18 @@ var footer = {
     },
   },
 }
+
+var mainheader = {
+  firstname: 'Alexandr',
+  lastname: 'Fedorovskyi',
+  project: 'Resume project',
+}
+
+var mainfooter = {
+  link: 'https://github.com/AFDR177',
+  copyright: 'AFDR 2023',
+  email: 'afdr177@gmail.com',
+}
 // ================================================================
 
 // router.get Створює нам один ентпоїнт
@@ -40,7 +52,16 @@ router.get('/', function (req, res) {
   // res.render генерує нам HTML сторінку
 
   //            ↙ cюди вводимо назву файлу з сontainer
-  res.render('index', {})
+  res.render('index', {
+    layout: 'index',
+    pages: 'Список сторінок',
+    page: {
+      title: 'Resume',
+    },
+    about: 'Інформація про проект.',
+    mainheader,
+    mainfooter,
+  })
   //                  ↑↑ сюди вводимо JSON дані
 })
 
@@ -51,10 +72,13 @@ router.get('/summary', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('summary', {
     // ↙ сюди вводимо JSON дані
-
+    layout: 'index',
     page: {
       title: 'Resume | Summary',
     },
+
+    mainheader,
+    mainfooter,
 
     header,
 
@@ -89,6 +113,10 @@ router.get('/skills', function (req, res) {
     page: {
       title: 'Resume | Skills',
     },
+
+    layout: 'index',
+    mainheader,
+    mainfooter,
 
     header,
 
@@ -154,6 +182,10 @@ router.get('/education', function (req, res) {
       title: 'Resume | Education',
     },
 
+    layout: 'index',
+    mainheader,
+    mainfooter,
+
     header,
 
     main: {
@@ -211,7 +243,10 @@ router.get('/work', function (req, res) {
   res.render('work', {
     // ↙ сюди вводимо JSON дані
 
-    layout: 'big',
+    // layout: 'big',
+    layout: 'index',
+    mainheader,
+    mainfooter,
 
     page: {
       title: 'Resume | Work',
@@ -278,7 +313,10 @@ router.get('/work', function (req, res) {
 router.get('/person', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('person', {
-    layout: 'basic',
+    // layout: 'basic',
+    layout: 'index',
+    mainheader,
+    mainfooter,
     page: {
       title: 'Resume | Person',
     },
@@ -385,7 +423,10 @@ router.get('/person', function (req, res) {
 router.get('/bio', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('bio', {
-    layout: 'basic',
+    // layout: 'basic',
+    layout: 'index',
+    mainheader,
+    mainfooter,
     page: {
       title: 'Resume | Bio',
     },
@@ -487,7 +528,10 @@ router.get('/bio', function (req, res) {
 router.get('/program', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('program', {
-    layout: 'basic',
+    // layout: 'basic',
+    layout: 'index',
+    mainheader,
+    mainfooter,
     page: {
       title: 'Resume | Program',
     },
@@ -578,7 +622,10 @@ router.get('/program', function (req, res) {
 router.get('/web', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('web', {
-    layout: 'basic',
+    // layout: 'basic',
+    layout: 'index',
+    mainheader,
+    mainfooter,
     page: {
       title: 'Resume | Web',
     },
@@ -715,7 +762,10 @@ router.get('/js', function (req, res) {
 
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('js', {
-    layout: 'basic',
+    // layout: 'basic',
+    layout: 'index',
+    mainheader,
+    mainfooter,
     page: {
       title: 'Resume | JS',
     },
@@ -802,7 +852,10 @@ router.get('/car', function (req, res) {
 
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('car', {
-    layout: 'basic',
+    // layout: 'basic',
+    layout: 'index',
+    mainheader,
+    mainfooter,
     page: {
       title: 'Resume | Car',
     },
@@ -907,7 +960,10 @@ router.get('/mac', function (req, res) {
 
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('mac', {
-    layout: 'basic',
+    // layout: 'basic',
+    layout: 'index',
+    mainheader,
+    mainfooter,
     page: {
       title: 'Resume | Mac',
     },
@@ -1002,7 +1058,10 @@ router.get('/facebook', function (req, res) {
 
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('facebook', {
-    layout: 'basic',
+    // layout: 'basic',
+    layout: 'index',
+    mainheader,
+    mainfooter,
     page: {
       title: 'Resume | Facebook',
     },
@@ -1182,7 +1241,10 @@ router.get('/bootstrapOld', function (req, res) {
 
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('bootstrapOld', {
-    layout: 'bootstrap',
+    // layout: 'bootstrap',
+    layout: 'index',
+    mainheader,
+    mainfooter,
   })
   //                  ↑↑ сюди вводимо JSON дані
 })
@@ -1197,7 +1259,10 @@ router.get('/task21', function (req, res) {
 
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('task21', {
-    layout: 'basic',
+    // layout: 'basic',
+    layout: 'index',
+    mainheader,
+    mainfooter,
     heading: {
       main: {
         title: 'JavaScript',
@@ -1270,7 +1335,10 @@ router.get('/task31', function (req, res) {
 
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('task31', {
-    layout: 'basic',
+    // layout: 'basic',
+    layout: 'index',
+    mainheader,
+    mainfooter,
     navigation: {
       links: [
         {
@@ -1530,7 +1598,10 @@ router.get('/shophome', function (req, res) {
 
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('shophome', {
-    layout: 'shop',
+    // layout: 'shop',
+    layout: 'index',
+    mainheader,
+    mainfooter,
     page: {
       title: 'Resume | Shop',
     },
@@ -1827,7 +1898,10 @@ router.get('/task22', function (req, res) {
 
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('task22', {
-    layout: 'basic',
+    // layout: 'basic',
+    layout: 'index',
+    mainheader,
+    mainfooter,
     page_header: {
       title: 'InnovaMind',
       description: 'Welcome to our wonderful community',
@@ -1922,7 +1996,10 @@ router.get('/shopproduct', function (req, res) {
 
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('shopproduct', {
-    layout: 'shop',
+    // layout: 'shop',
+    layout: 'index',
+    mainheader,
+    mainfooter,
     navigation: {
       links: [
         {
@@ -2141,7 +2218,10 @@ router.get('/shopnews', function (req, res) {
 
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('shopnews', {
-    layout: 'shop',
+    // layout: 'shop',
+    layout: 'index',
+    mainheader,
+    mainfooter,
     navigation: {
       links: [
         {
@@ -2354,7 +2434,10 @@ router.get('/shoporder', function (req, res) {
 
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('shoporder', {
-    layout: 'shop',
+    // layout: 'shop',
+    layout: 'index',
+    mainheader,
+    mainfooter,
     navigation: {
       links: [
         {
@@ -2727,7 +2810,10 @@ router.get('/shopcart', function (req, res) {
 
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('shopcart', {
-    layout: 'shop',
+    // layout: 'shop',
+    layout: 'index',
+    mainheader,
+    mainfooter,
     navigation: {
       links: [
         {
@@ -2977,7 +3063,10 @@ router.get('/shopprofile', function (req, res) {
 
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('shopprofile', {
-    layout: 'shop',
+    // layout: 'shop',
+    layout: 'index',
+    mainheader,
+    mainfooter,
     navigation: {
       links: [
         {
@@ -3275,7 +3364,10 @@ router.get('/shopreview', function (req, res) {
 
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('shopreview', {
-    layout: 'shop',
+    // layout: 'shop',
+    layout: 'index',
+    mainheader,
+    mainfooter,
     navigation: {
       links: [
         {
@@ -3565,7 +3657,10 @@ router.get('/shopcatalog', function (req, res) {
 
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('shopcatalog', {
-    layout: 'shop',
+    // layout: 'shop',
+    layout: 'index',
+    mainheader,
+    mainfooter,
     navigation: {
       links: [
         {

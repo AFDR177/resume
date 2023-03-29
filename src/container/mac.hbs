@@ -13,7 +13,7 @@
         <ul>
             {{#with features}}
             {{> title big=true data='Features'}}
-            <li>
+            <li class="my-2">
                 <div>
                     {{#with processor}}
                     {{> title_wish smoll=true data='processor:'}}
@@ -21,8 +21,8 @@
                     {{/with}}
                 </div>
             </li>
-            <br>
-            <li>
+
+            <li class="my-2">
                 <div>
                     {{#with memory}}
                     {{> title_wish smoll=true data='memory:'}}
@@ -30,8 +30,8 @@
                     {{/with}}
                 </div>
             </li>
-            <br>
-            <li>
+
+            <li class="my-2">
                 <div>
                     {{#with storage}}
                     {{> title_wish smoll=true data='storage:'}}
@@ -39,8 +39,8 @@
                     {{/with}}
                 </div>
             </li>
-            <br>
-            <li>
+
+            <li class="my-2">
                 <div>
                     {{#with display}}
                     {{> title_wish smoll=true data='display:'}}
@@ -48,8 +48,8 @@
                     {{/with}}
                 </div>
             </li>
-            <br>
-            <li>
+
+            <li class="my-2">
                 <div>
                     {{#with graphics}}
                     {{> title_wish smoll=true data='graphics:'}}
@@ -57,34 +57,36 @@
                     {{/with}}
                 </div>
             </li>
-            <br>
+
             <li>
                 <div>
 
                     {{> title_wish smoll=true data='ports:'}}
                     <ul>
                         {{#with ports.[0]}}
-                        <li><u>Port 1:</u><br>
-                            Type:{{type}},<br>
-                            Count{{count}}, <br>
+                        <li>
+                            <div class="mb-2 mt-3"><u>Port 1:</u></div>
+                            <div class="">Type:{{type}},</div>
+                            <div class="">Count{{count}},</div>
                             Features:
                             {{#each features}}
                             {{this}},
                             {{/each}}
                         </li>
                         {{/with}}
-                        <br>
+
                         {{#with ports.[1]}}
-                        <li><u>Port 2:</u><br>
-                            Type:{{type}},<br>
-                            Count{{count}}, <br>
+                        <li>
+                            <div class="mb-2 mt-3"><u>Port 2:</u></div>
+                            <div class="">Type:{{type}},</div>
+                            <div class="">Count{{count}}, </div>
                         </li>
                         {{/with}}
                     </ul>
                 </div>
             </li>
-            <br>
-            <li>
+
+            <li class="my-2">
                 <div>
                     {{#with battery}}
                     {{> title_wish smoll=true data='battery:'}}
@@ -92,14 +94,14 @@
                     {{/with}}
                 </div>
             </li>
-            <br>
-            <li>
+
+            <li class="my-2">
                 <div>
                     {{> title_wish smoll=true data='weight:'}}
                     {{weight}}
                 </div>
             </li>
-            <br>
+
             <li>
                 <div>
                     {{#with dimensions}}
@@ -108,25 +110,25 @@
                     {{/with}}
                 </div>
             </li>
-            <br>
-            <li>
+
+            <li class="my-2">
                 <div>
                     {{> title_wish smoll=true data='operating_system:'}}
                     {{operating_system}}
                 </div>
             </li>
-            <br>
-            <li>
+
+            <li class="my-2">
                 <div>
 
                     {{> title_wish smoll=true data='accessories:'}}
                     <ul>
                         {{#each accessories}}
                         <li>
-                            <u>Name:</u> {{name}}<br>
-                            <u>Price:</u> {{price}}<br>
+                            <div class="my-2"><u>Name:</u> {{name}}</div>
+                            <div><u>Price:</u> {{price}}</div>
                         </li>
-                        <br>
+
                         {{/each}}
                     </ul>
                 </div>

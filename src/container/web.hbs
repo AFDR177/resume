@@ -1,5 +1,5 @@
-<div>
-    <main>
+<main>
+    <div>
         <ol>
             <h1>Languages</h1>
             {{#each web.languages}}
@@ -7,19 +7,19 @@
                 <strong>{{name}}</strong> - {{version}}
             </li>
             <em>{{description}}</em>
-            <br>
-            <br>
-            <div>
+
+            <div class="my-3">
                 <ul>
-                    {{#with elements}}
-                    {{> title_wish data='Elements:' smoll=true}}
-                    {{/with}}
-                    <br>
+                    <div class="my-2">
+                        {{#with elements}}
+                        {{> title_wish data='Elements:' smoll=true}}
+                        {{/with}}
+                    </div>
 
                     {{#each elements}}
-                    <li><b>{{name}}</b> - <em>{{description}}</em></li>
-                    <br>
-                    <ul>
+                    <li class="mb-3"><b>{{name}}</b> - <em>{{description}}</em></li>
+
+                    <ul class="my-1">
                         {{#with attributes}}
                         {{> title_wish data='Attributes:' smoll=false}}
                         {{/with}}
@@ -27,19 +27,16 @@
                         {{#each attributes}}
                         <li><b>{{name}}</b> - <em>{{description}}</em></li>
                         {{/each}}
-                        <br>
+
                     </ul>
                     {{/each}}
-
-                    {{!-- {{> wish }} --}}
 
                     {{#with properties}}
                     {{> title_wish data='Properties:' smoll=false}}
                     {{/with}}
 
                     {{#each properties}}
-                    <li><b>{{name}}</b> - <em>{{description}}</em><br>
-                        <br>
+                    <li class="mb-3"><b>{{name}}</b> - <em>{{description}}</em><br>
                         <ul>
                             {{#with values}}
                             {{> title_wish data='Values:' smoll=false}}
@@ -49,20 +46,18 @@
                             {{/each}}
                         </ul>
                     </li>
-                    <br>
                     {{/each}}
 
 
 
-                    <div>
+                    <div class="mt-2">
                         {{#with functions}}
                         {{> title_wish data='Functions:' smoll=false}}
                         {{/with}}
 
                         {{#each functions}}
-                        <li><b>{{name}}</b> - <em>{{description}}</em>
-                            <br>
-                            <br>
+                        <li class="mb-3"><b>{{name}}</b> - <em>{{description}}</em>
+
                             <ul>
                                 {{#with parameters}}
                                 {{> title_wish data='Parameters' smoll=false}}
@@ -70,18 +65,13 @@
                                 {{> wish1 list1=parameters}}
                             </ul>
                         </li>
-                        <br>
+
                         {{/each}}
                     </div>
-
-
                 </ul>
                 <br>
-
             </div>
-
             {{/each}}
         </ol>
-
-    </main>
-</div>
+    </div>
+</main>

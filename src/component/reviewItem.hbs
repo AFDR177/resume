@@ -40,9 +40,12 @@
                 {{/with}}
             </div>
 
-            <div>
+            <div class="row">
+
                 {{#each images}}
-                <img class="card-img-top m-2" src={{this}} alt="product foto">
+                <div class="col-2">
+                    <img class="card-img-top m-2" src={{this}} alt="product foto">
+                </div>
                 {{/each}}
             </div>
 

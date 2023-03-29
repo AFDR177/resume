@@ -1,98 +1,106 @@
-<div>
-    <main>
-        {{#with program.excursion}}
-        <section>
-            <h1>{{name}}</h1>
-            {{#with location}}
-            <div>
-                <em>{{city}}</em>
-                <br>
-                <em>{{country}}</em>
-                {{/with}}
-                <br>
-                <em>{{date}}</em>
-            </div>
-            <hr>
-            <ul>
-                {{#with program.[0]}}
-                <li>{{> title data=name big=true}}
-                    <p><b>Type:</b> {{type}}</p>
-                    <b>Duration:</b> {{duration}} hours
-                    <br>
-                    <br>
+<main>
+    <div class="row">
+        <div class="col-12">
+            {{#with program.excursion}}
+            <section>
+                <h1>{{name}}</h1>
+                {{#with location}}
+                <div>
+                    <div>{{city}}</div>
 
-                    <div>
-                        {{#with details.museum}}
-                        <b>Museum:</b> {{name}}<br>
-                        {{#with location}}
-                        <b>Location:</b> {{address}}, {{city}}, {{country}}
-                        {{/with}}
+                    <div>{{country}}</div>
+                    {{/with}}
 
-                        <p>{{> title_wish data='Exhibits:' smoll=true}}</p>
-                        <ul>
-                            {{#each exhibits}}
-                            <li>
-                                {{name}}
-                                <br>
-                                {{#if artist includeZero=true}} {{artist}}
-                                {{else}}
-                                {{#unless artist includeZero=true}} <em>(No artist)</em>
-                                {{/unless}}
-                                {{/if}}
-                                <br>
-                                {{description}}
-                                <br>
-                                {{#if audio_guide}} With audio guide :-) {{/if}}
-                                <br>
-                            </li>
-                            <br>
-                            {{/each}}
-                        </ul>
-                        {{/with}}
-                    </div>
-
-                    <div>
-                        <p>{{> title_wish data='Guide:' smoll=true}}</p>
-                        {{> guide guide=details.guide }}
-                    </div>
-                </li>
-                <br>
-                {{/with}}
+                    <div>{{date}}</div>
+                </div>
                 <hr>
-                <br>
-                {{#with program.[1]}}
-                <li>{{> title data=name big=true}}
-                    <p><b>Type:</b> {{type}}</p>
-                    <b>Duration:</b> {{duration}} hours
-                    <br>
-                    <br>
-                    <div>
-                        {{#with details.venue}}
-                        <b>Venue:</b> {{name}}<br>
-                        {{#with location}}
-                        <b>Location:</b> {{address}}, {{city}}, {{country}}
-                        {{/with}}
-                        {{/with}}
-                        <br>
-                        <br>
+                <ul>
+                    {{#with program.[0]}}
+                    <li>{{> title data=name big=true}}
+                        <p><b>Type:</b> {{type}}</p>
+                        <b>Duration:</b> {{duration}} hours
+
+
+
                         <div>
-                            {{> title_wish data='Performers:' smoll=true}}
+                            {{#with details.museum}}
+                            <b>Museum:</b> {{name}}
+                            {{#with location}}
+                            <div><b>Location:</b> {{address}}, {{city}}, {{country}}</div>
+                            {{/with}}
+
+                            <p>{{> title_wish data='Exhibits:' smoll=true}}</p>
                             <ul>
-                                {{#each details.performers}}
-                                <p>
-                                    <li><b>{{name}}</b></li> <em>{{type}}</em>
-                                </p>
+                                {{#each exhibits}}
+                                <li>
+
+                                    <div class="my-3">{{name}}</div>
+
+
+                                    {{#if artist includeZero=true}} {{artist}}
+                                    {{else}}
+                                    {{#unless artist includeZero=true}} <div>(No artist)</div>
+                                    {{/unless}}
+                                    {{/if}}
+
+                                    <div>{{description}}</div>
+                                    <div>
+                                        {{#if audio_guide}} With audio guide :-) {{/if}}
+                                    </div>
+                                </li>
+
                                 {{/each}}
                             </ul>
+                            {{/with}}
                         </div>
+
                         <div>
                             <p>{{> title_wish data='Guide:' smoll=true}}</p>
                             {{> guide guide=details.guide }}
                         </div>
-                    </div>
-                </li>
-                {{/with}}
-        </section>
-        {{/with}}
-    </main>
-</div>
+                    </li>
+
+                    {{/with}}
+                    <hr>
+
+                    {{#with program.[1]}}
+                    <li>{{> title data=name big=true}}
+                        <p><b>Type:</b> {{type}}</p>
+                        <b>Duration:</b> {{duration}} hours
+
+
+                        <div>
+                            {{#with details.venue}}
+                            <b>Venue:</b> {{name}}
+                            {{#with location}}
+                            <div><b>Location:</b> {{address}}, {{city}}, {{country}}</div>
+                            {{/with}}
+                            {{/with}}
+
+
+                            <div>
+                                <div class="my-2">
+                                    {{> title_wish data='Performers:' smoll=true}}
+                                </div>
+                                <ul>
+                                    {{#each details.performers}}
+                                    <p>
+                                        <li><b>{{name}}</b></li>
+                                    <div>{{type}}</div>
+                                    </p>
+                                    {{/each}}
+                                </ul>
+                            </div>
+
+                            <div>
+                                <p>{{> title_wish data='Guide:' smoll=true}}</p>
+                                {{> guide guide=details.guide }}
+                            </div>
+                        </div>
+                    </li>
+                    {{/with}}
+            </section>
+            {{/with}}
+        </div>
+    </div>
+</main>

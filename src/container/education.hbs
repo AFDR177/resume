@@ -1,7 +1,9 @@
-<div>
-    {{#with main}}
-    <main>
-        <section>
+<main>
+    <div class="row">
+        {{> header_res}}
+
+        {{#with main}}
+        <section class="ms-5 my-5">
             <div>
                 {{> title big=true data='My educationss'}}
             </div>
@@ -15,7 +17,7 @@
             </ul>
         </section>
 
-        <section>
+        <section class="ms-5">
             <div>
                 {{> title big=false data='My certificats'}}
             </div>
@@ -30,6 +32,8 @@
                 {{/each}}
             </ul>
         </section>
-    </main>
-    {{/with}}
-</div>
+        {{/with}}
+
+        {{>footer}}
+    </div>
+</main>
